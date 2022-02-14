@@ -1,0 +1,32 @@
+{% extends 'Food_Delivery/main.html' %}
+{% load static %}
+{% block content %}
+    <center>
+        {% if searched %}
+        <h1>Ati cautat {{searched}}</h1>
+
+        {%for result in results %}
+        <div class="col-lg-4">
+            <img class="thumbnail" src="{{result.imageURL}}">
+            <div class="box-element product">
+                <h6 ><strong>{{result.name}}</strong></h6>
+                <h4 style="display: inline-block; float: right"><strong>{{result.price|floatformat:2}} lei</strong></h4>
+
+                <button  class="btn btn-dark">Adaugă în coș</button>
+
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h1>Nu s-au gasit date</h1>
+
+
+
+
+        {% endif %}
+
+    </center>
+
+
+
+{% endblock %}
